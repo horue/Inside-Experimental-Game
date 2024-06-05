@@ -19,5 +19,9 @@ func _process(delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
